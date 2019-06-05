@@ -1,0 +1,48 @@
+@{
+    Layout = "_Layout";
+}
+
+    <section id="banner">
+        <img src="img/logo/logo.png" alt="Logo Ponto Digital!">
+        <h2>Comentários dos usuários do<br> Ponto Digital</h2>
+    </section>
+
+    <section id="comentarios">
+        <h3>Comentários de usuários:</h3>
+
+        <p>Infelizmente não há nenhum comentário cadastrado, seja o primeiro a comentar!</p>
+       <div id="comentsUser"> 
+           <!-- ABRE O FOREACH COM CADA COMENTARIO NESSE PADRAO-->
+
+            <div class="comentario">
+                <p class="nomeEmail">Nome do Usuário - Email do usuario</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum similique voluptatibus mollitia, laudantium veniam minima asperiores, alias, impedit eos necessitatibus deleniti placeat molestiae explicabo totam corporis odio reiciendis numquam hic!</p>
+            </div>
+            <div class="comentario">
+                <p class="nomeEmail">Nome do Usuário - Email do usuario</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum similique voluptatibus mollitia, laudantium veniam minima asperiores, alias, impedit eos necessitatibus deleniti placeat molestiae explicabo totam corporis odio reiciendis numquam hic!</p>
+            </div>
+            <div class="comentario">
+                <p class="nomeEmail">Nome do Usuário - Email do usuario</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum similique voluptatibus mollitia, laudantium veniam minima asperiores, alias, impedit eos necessitatibus deleniti placeat molestiae explicabo totam corporis odio reiciendis numquam hic!</p>
+            </div>
+
+       </div>
+        
+    </section>
+
+    <section id="comentar">
+        <h3>Comente sobre sua experiência com o Ponto Digital!</h3>
+                    <!-- CASO DESLOGADO-->
+        <p> Você precisa efetuar login para poder comentar!</p>
+
+        <form action="" method="POST">
+                <div class="inputs" id="mensagem">
+                    <label for="msg">Insira seu comentário:</label> 
+                    <br>
+                    <textarea disabled name="msg" id="input_msg" rows="6"></textarea>
+                </div>
+                <input type="submit"  disabled value="Enviar">
+        </form>
+
+    </section>
