@@ -3,13 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ponto_digital_final.Controllers
 {
-    public class HomeController: Controller
+    public class ContatosController: Controller
     {
         public IActionResult Index(){
             ViewData["User"] = HttpContext.Session.GetString("USER_EMAIL");
-            ViewData["Css"] = "Home";
+            ViewData["Css"] = "Contatos";
             return View();
         }
-        
     }
 }

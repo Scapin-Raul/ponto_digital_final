@@ -54,6 +54,7 @@
     margin: 1em auto;
     padding: 0.5em;
     background: #fff;
+    border-radius: 15px 0px;
 }
 .modal1-content h3{
     font-size: 2.5em;
@@ -95,7 +96,7 @@
     transform: translate(-50%);
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width:830px){
     #flex{
         flex-direction: column;
     }
@@ -112,7 +113,7 @@
         width: 100%;
     }
     .modal1-content{
-        top: 265%;
+        top: 160%;
         width: 85%;
     }
 }

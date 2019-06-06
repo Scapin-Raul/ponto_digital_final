@@ -24,3 +24,6 @@ C:\Users\46791749865\Desktop\ponto_digital_final\bin\Debug\netcoreapp2.1\ponto_d
 C:\Users\46791749865\Desktop\ponto_digital_final\bin\Debug\netcoreapp2.1\ponto_digital_final.Views.pdb
 C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\ponto_digital_final.csproj.CopyComplete
 C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Cadastro\Index.g.cshtml.cs
+C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Planos\Index.g.cshtml.cs
+C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Quem_somos\Index.g.cshtml.cs
+C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Contatos\Index.g.cshtml.cs

@@ -44,10 +44,24 @@ namespace ponto_digital_final.Repositorios
                     listaDeUsuarios.Add(usuario);
                 }
             }
-
-
-
             return listaDeUsuarios;
         }
+
+        public UsuarioModel BuscarPorEmail(string email){
+            List<UsuarioModel> usuarios = Listar();
+            UsuarioModel usuario;
+
+            foreach (var item in usuarios){
+                if (item != null && item.Email.Equals(email)){
+                    usuario = item;
+                    return usuario;
+                }else{
+                    continue;
+                }
+            }
+            return null;
+        }
+
+
     }
 }

@@ -1,3 +1,7 @@
+@{
+    var user = (string) ViewData["User"];
+}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,6 +20,16 @@
     }else if (ViewData["Css"].Equals("Cadastro"))
     {
         <link rel="stylesheet" href="css/cadastro.css">
+    }else if (ViewData["Css"].Equals("Planos"))
+    {
+        <link rel="stylesheet" href="css/planos.css">     
+        <link rel="stylesheet" href="css/popup_planos.css">  
+    }else if (ViewData["Css"].Equals("QuemSomos"))
+    {
+        <link rel="stylesheet" href="css/quem_somos.css">          
+    }else if (ViewData["Css"].Equals("Contatos"))
+    {
+        <link rel="stylesheet" href="css/contatos.css">                  
     }
 
     
@@ -30,12 +44,19 @@
                 <ul class="ul_menu">
                     <li><a href='@Url.Action("Index", "Home")'>Home</a></li> 
                     <li><a href='@Url.Action("Index", "Planos")' >Planos</a></li>
-                    <li><a href='@Url.Action("Index", "Quem-somos")' >Quem somos?</a></li>
+                    <li><a href='@Url.Action("Index", "Quem_somos")' >Quem somos?</a></li>
                     <li><a href='@Url.Action("Index", "Contatos")' >Contatos</a></li>
                     <li><a href='@Url.Action("Index", "Comentarios")'>Comentários</a></li> 
-                    <li><a href='@Url.Action("Index", "Sac")' >SAC</a></li>
                     <li><a href='@Url.Action("Index", "Cadastro")' >Cadastro</a></li>
-                    <p onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</p>
+                    @if (string.IsNullOrEmpty(user))
+                    {
+                        <p onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</p>
+                    }else
+                    {
+                        <li><a href='@Url.Action("Logout", "Login")' >Logout</a></li>
+                    }
+                        
+
                 </ul>
             </nav>
         </div>
@@ -59,10 +80,9 @@
                 <ul>
                         <li><a href='@Url.Action("Index", "Home")'>Home</a></li> 
                     <li><a href='@Url.Action("Index", "Planos")' >Planos</a></li>
-                    <li><a href='@Url.Action("Index", "Quem-somos")' >Quem somos?</a></li>
+                    <li><a href='@Url.Action("Index", "Quem_somos")' >Quem somos?</a></li>
                     <li><a href='@Url.Action("Index", "Contatos")' >Contatos</a></li>
                     <li><a href='@Url.Action("Index", "Comentarios")'>Comentários</a></li> 
-                    <li><a href='@Url.Action("Index", "Sac")' >SAC</a></li>
                     <li><a href='@Url.Action("Index", "Cadastro")' >Cadastro</a></li>
                 </ul>
             </nav>
@@ -82,17 +102,17 @@
 
 <div id="id01" class="modal">
   
-    <form class="modal-content animate" method="POST" action="">
+    <form class="modal-content animate" method="POST" action='@Url.Action("Logar", "Login")'>
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
             <img src="img/logo/favicon.png" alt="Logo" class="avatar">
         </div>
     
         <div class="container">
-            <label for="uname"><b>Email de Usuário</b></label> <br>
+            <label for="uname"><b>Email de Usuário:</b></label> <br>
             <input type="text" placeholder="Insira seu email" name="uname" required>
             <br> <br>
-            <label for="psw"><b>Senha</b></label> <br>
+            <label for="psw"><b>Senha:</b></label> <br>
             <input type="password" placeholder="Insira sua senha" name="psw" required>
                 
             <button type="submit">Acessar</button>

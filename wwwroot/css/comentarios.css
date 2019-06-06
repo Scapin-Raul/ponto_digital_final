@@ -1,3 +1,9 @@
+#content{
+    background-image: url(../img/fundo-cadastro.png);
+    background-repeat: repeat;
+    background-position: top left;
+    padding: 1em 0 2em 0;
+}
 #banner h2{
     margin-right: 7%;
 }
@@ -20,12 +26,13 @@
 }
 
 .comentario{
-    padding: 0.5em;
+    padding: 1em;
     text-align: left;
     width: 49%;
     border-style: solid;
     border-width: 0.09em;
     margin: 1em 0;
+    background: #eee;
 }
 .nomeEmail{
     text-decoration: underline;
