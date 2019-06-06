@@ -4,7 +4,7 @@
 
 #comentarios{
     text-align: center;
-    width: 80%;
+    width: 90%;
     margin: 1em auto;
 }
 
@@ -32,10 +32,14 @@
     font-size: 1.1em;
     margin-bottom: 0.25em;
 }
+.data{
+    text-align: right;
+}
+
 
 #comentar{
     text-align: center;
-    width: 50%;
+    width: 70%;
     margin: 2em auto;
 }
 #comentar h3{
@@ -50,15 +54,53 @@
     text-align: left;
     font-size: 1.2em;
 }
+.inputs{
+    width: 80%;
+    margin: 0 auto;
+}
 
-#input_msg{
+.input_msg{
     width: 100%;
     background: #eee;
 }
-input[type="submit"]{
+.submit{
     display: block;
-    width: 10%;
+    width: 25%;
     height: 1.5em;
     font-size: 1.3em;
     margin: 0 auto;
+}
+@media screen and (max-width:1200px){
+    .inputs{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:930px){
+    #comentar{
+        width: 80%;
+    }
+}
+@media screen and (max-width:768px){
+    #comentar{
+        width: 90%;
+    }
+    .comentario{
+        width: 100%;
+    }
+    #comentar p{
+        font-size: 1.2em;
+    }
+    #comentar h3{
+        font-size: 1.7em;
+    }
+    #comentarios h3{
+        margin: 0.5em auto;   
+        font-size: 2.2em;
+    }
+    #comentar form{
+        font-size: 1em;
+    }
+
 }

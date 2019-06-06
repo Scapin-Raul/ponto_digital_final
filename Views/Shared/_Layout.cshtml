@@ -13,8 +13,12 @@
     }else if (ViewData["Css"].Equals("Comentarios"))
     {
         <link rel="stylesheet" href="css/comentarios.css">
+    }else if (ViewData["Css"].Equals("Cadastro"))
+    {
+        <link rel="stylesheet" href="css/cadastro.css">
     }
 
+    
 </head>
 
 <body>
@@ -54,11 +58,12 @@
             <nav id="menu_pe">
                 <ul>
                         <li><a href='@Url.Action("Index", "Home")'>Home</a></li> 
-                        <li><a href='@Url.Action("Index", "Planos")' >Planos</a></li>
-                        <li><a href='@Url.Action("Index", "Cadastro")' >Cadastro</a></li>
-                        <li><a href='@Url.Action("Index", "Contatos")' >Contatos</a></li>
-                        <li><a href='@Url.Action("Index", "Quem-somos")' >Quem somos?</a></li>
-                        <li><a href='@Url.Action("Index", "Sac")' >SAC</a></li>
+                    <li><a href='@Url.Action("Index", "Planos")' >Planos</a></li>
+                    <li><a href='@Url.Action("Index", "Quem-somos")' >Quem somos?</a></li>
+                    <li><a href='@Url.Action("Index", "Contatos")' >Contatos</a></li>
+                    <li><a href='@Url.Action("Index", "Comentarios")'>Comentários</a></li> 
+                    <li><a href='@Url.Action("Index", "Sac")' >SAC</a></li>
+                    <li><a href='@Url.Action("Index", "Cadastro")' >Cadastro</a></li>
                 </ul>
             </nav>
       </div>

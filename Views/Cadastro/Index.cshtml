@@ -1,0 +1,38 @@
+@{
+    Layout = "_Layout";
+}
+
+
+<section id="banner">
+        <img src="img/logo/logo.png" alt="Logo Ponto Digital!">
+        <h2>Cadastro</h2>
+    </section>
+
+    <section id="cadastro">
+        <div id="conteudo">
+            <h3>Cadastre-se para contratar um de nossos planos!</h3>
+            <form action='@Url.Action("Cadastrar", "Cadastro")' method="POST">
+                <div class="inputs">
+                    <label for="nome">Nome completo:</label> <br>
+                    <input type="text" name="nome" id="nome" placeholder="Ex.: João Silveira" maxlength="50" required>
+                </div>
+
+                <div class="inputs">
+                    <label for="email">E-mail:</label> <br>
+                    <input type="email" name="email" id="email" placeholder="Ex.: joao.silveira@gmail.com" maxlength="30" required>
+                </div>
+
+                <div class="inputs">
+                    <label for="dataNascimento">Data de Nascimento:</label> <br>
+                    <input type="date" name="dataNascimento" id="dataNascimento" required>
+                </div>
+
+                <div class="inputs">
+                    <label for="senha">Senha:</label> <br>
+                    <input type="password" name="senha" id="senha" maxlength="30" minlength="6" required>
+                </div>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
