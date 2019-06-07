@@ -10,6 +10,8 @@ namespace ponto_digital_final.Controllers
     {
         private UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
         public IActionResult Index(){
+            ViewData["UserN"] = HttpContext.Session.GetString("USER_NOME");
+            ViewData["UserE"] = HttpContext.Session.GetString("USER_EMAIL");
             ViewData["Css"] = "Cadastro";
             return View();
         }

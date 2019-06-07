@@ -1,6 +1,8 @@
 @{
     Layout = "_Layout";
+    var user = (string) ViewData["UserN"];
 }
+@model ponto_digital_final.ViewModels.ComentariosViewModel
 
     <section id="banner">
         <img src="img/logo/logo.png" alt="Logo Ponto Digital!">
@@ -14,22 +16,15 @@
             <p>Infelizmente não há nenhum comentário cadastrado, seja o primeiro a comentar!</p>
         <div id="comentsUser"> 
             <!-- ABRE O FOREACH COM CADA COMENTARIO NESSE PADRAO-->
-
+            @foreach (var item in @Model.listaDeComentarios)
+            {
                 <div class="comentario">
-                    <p class="nomeEmail">Nome do Usuário - Email do usuario</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum similique voluptatibus mollitia, laudantium veniam minima asperiores, alias, impedit eos necessitatibus deleniti placeat molestiae explicabo totam corporis odio reiciendis numquam hic!</p>
-                    <p class="data">Data do comentario</p>
+                    <p class="nomeEmail">@item.Nome - @item.Email</p>
+                    <p>@item.Texto</p>
+                    <p class="data">@item.Data.ToShortDateString()</p>
                 </div>
-                <div class="comentario">
-                    <p class="nomeEmail">Nome do Usuário - Email do usuario</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum similique voluptatibus mollitia, laudantium veniam minima asperiores, alias, impedit eos necessitatibus deleniti placeat molestiae explicabo totam corporis odio reiciendis numquam hic!</p>
-                    <p class="data">Data do comentario</p>            
-                </div>
-                <div class="comentario">
-                    <p class="nomeEmail">Nome do Usuário - Email do usuario</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum similique voluptatibus mollitia, laudantium veniam minima asperiores, alias, impedit eos necessitatibus deleniti placeat molestiae explicabo totam corporis odio reiciendis numquam hic!</p>
-                    <p class="data">Data do comentario</p>
-                </div>
+                
+            }
 
         </div>
             
@@ -37,10 +32,11 @@
 
         <section id="comentar">
             <h3>Comente sobre sua experiência com o Ponto Digital!</h3>
-                        <!-- CASO DESLOGADO-->
+            @if (string.IsNullOrEmpty(user))
+            {
             <p> Você precisa efetuar login para poder comentar!</p>
-
-            <form action="" method="POST">
+                
+            <form method="POST">
                     <div class="inputs" id="mensagem">
                         <label for="msg">Insira seu comentário:</label> 
                         <br>
@@ -48,10 +44,10 @@
                     </div>
                     <input type="submit" class="submit" disabled value="Enviar">
             </form>
+            }else
+            {
 
-            <h3>Comente sobre sua experiência com o Ponto Digital!</h3>
-
-            <form action="" method="POST">
+            <form action='@Url.Action("Comentar", "Comentarios")' method="POST">
                     <div class="inputs" id="mensagem">
                         <label for="msg">Insira seu comentário:</label> 
                         <br>
@@ -59,6 +55,9 @@
                     </div>
                     <input type="submit" class="submit" value="Enviar">
             </form>
+                
+            }
+
 
         </section>
     </div>

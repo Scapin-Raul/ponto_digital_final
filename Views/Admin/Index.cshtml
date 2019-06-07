@@ -1,0 +1,22 @@
+@{
+    Layout = "_AdminLayout";
+}
+@model ponto_digital_final.ViewModels.AdminViewModel;
+
+<section id="content">
+    <h3>Página de Administração</h3>
+
+    <p>Ultimos depoimentos: </p>
+
+    <p>Ultimos usuarios cadastrados:</p>
+
+    <p>Quantidade de usuarios cadastrados: @Model.QuantidadeDeUsuarios</p>
+
+    <p>Quantidade de depoimentos: @Model.QuantidadeDeComentarios</p>
+
+    <p>Quantidade de depoimentos aprovados: @Model.QuantidadeDeAprovados</p>
+    <p>Quantidade de depoimentos reprovados: @Model.QuantidadeDeReprovados</p>
+    <br>
+    <a href='@Url.Action("Aprovacao", "Admin")'>Aprovar comentarios</a>
+
+</section>

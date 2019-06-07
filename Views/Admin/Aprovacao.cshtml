@@ -1,0 +1,26 @@
+@{
+    Layout = "_AdminLayout";
+}
+@model ponto_digital_final.ViewModels.AdminViewModel;
+
+
+<section id="content">
+    <h3>Página de Administração - Aprovação de Comentários</h3>
+
+
+    @foreach (var item in @Model.listaDeReprovados)
+    {
+        <div class="comentario">
+            <div class="topo">
+                <p class="nomeEmail">@item.Nome - @item.Email</p>
+                <div>
+                <a href="/Admin/Aprovar?id=@item.ID">Aprovar</a> <a >Deletar</a>
+                </div>
+            </div>
+            <p>@item.Texto</p>
+            <p class="data">@item.Data.ToShortDateString()</p>
+        </div>  
+
+    }
+
+</section>

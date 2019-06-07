@@ -6,7 +6,8 @@ namespace ponto_digital_final.Controllers
     public class ContatosController: Controller
     {
         public IActionResult Index(){
-            ViewData["User"] = HttpContext.Session.GetString("USER_EMAIL");
+            ViewData["UserN"] = HttpContext.Session.GetString("USER_NOME");
+            ViewData["UserE"] = HttpContext.Session.GetString("USER_EMAIL");
             ViewData["Css"] = "Contatos";
             return View();
         }

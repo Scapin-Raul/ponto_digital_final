@@ -18,7 +18,13 @@ namespace ponto_digital_final.Controllers
                 HttpContext.Session.SetString("USER_ADMIN",usuario.Admin.ToString());
             }
 
-            return RedirectToAction("Index","Home");
+            if (usuario.Admin)
+            {
+                return RedirectToAction("Index","Admin");
+                
+            }
+
+            return RedirectToAction("Index","Comentarios");
         }
 
         public IActionResult Logout(){
