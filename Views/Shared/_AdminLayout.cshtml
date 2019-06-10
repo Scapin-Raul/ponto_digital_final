@@ -1,3 +1,6 @@
+@{
+    string css = (string) ViewData["Css"];
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,10 +8,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PONTO DIGITAL - ADMIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/css/admin.css">                  
+    <link rel="stylesheet" href="~/css/admin.css">   
+    @if (css.Equals("Aprovacao"))
+    {
+        <link rel="stylesheet" href="~/css/admin_aprovar.css">           
+    }else if (css.Equals("Admin"))
+    {
+        <link rel="stylesheet" href="~/css/admin_home.css">           
+    }else if (css.Equals("Usuarios"))
+    {
+        <link rel="stylesheet" href="~/css/admin_usuarios.css">           
+        
+    }else if (css.Equals("Comentarios"))
+    {
+        <link rel="stylesheet" href="~/css/admin_comentarios.css">           
+        
+    }
 
 </head>
 <body>
+    <h1>PONTO DIGITAL</h1>
+    <header>
+        <nav id="menu">
+            <ul class="ul_menu">
+                <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
+                <li><a href='@Url.Action("Index", "Admin")'>Home Admin</a></li>
+                <li><a href='@Url.Action("Comentarios", "Admin")'>Gerenciar Comentários</a></li>
+                <li><a href='@Url.Action("Usuarios", "Admin")'>Gerenciar Usuários</a></li>
+                <li><a href='@Url.Action("Logout", "Login")' >Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
 
 @RenderBody()
 

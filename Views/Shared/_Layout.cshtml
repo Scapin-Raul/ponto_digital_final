@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PONTO DIGITAL</title>
+    <title>PONTO DIGITAL - @ViewData["Title"].ToString().ToUpper()</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
     @if (ViewData["Css"].Equals("Home"))
@@ -117,6 +117,10 @@
                 
             <button type="submit">Acessar</button>
         </div>
+        <div id="rodape-login">
+        <p>Não tem conta ainda? </p> <a href='@Url.Action("Index", "Cadastro")'> Cadrastre-se já!</a>
+        </div>
+
     </form>
 </div>
       

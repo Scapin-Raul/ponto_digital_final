@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ponto_digital_final.Models;
 
 namespace ponto_digital_final.Repositorios
@@ -32,19 +33,19 @@ namespace ponto_digital_final.Repositorios
             string[] linhas = File.ReadAllLines(PATH);
 
             foreach (var item in linhas){
-                if (item != null){
+                if (item != null && !item.Equals("")){
                     string[] dados = item.Split(";");
 
-                    var usuario = new ComentarioModel();
-                    usuario.ID = int.Parse(dados[0]);
-                    usuario.Nome = dados[1];
-                    usuario.Email = dados[2];
-                    usuario.Texto = dados[3];
-                    usuario.Data = DateTime.Parse(dados[4]);
-                    usuario.Aprovado = bool.Parse(dados[5]);
+                    var comentario = new ComentarioModel();
+                    comentario.ID = int.Parse(dados[0]);
+                    comentario.Nome = dados[1];
+                    comentario.Email = dados[2];
+                    comentario.Texto = dados[3];
+                    comentario.Data = DateTime.Parse(dados[4]);
+                    comentario.Aprovado = bool.Parse(dados[5]);
 
 
-                    listaDeComentarios.Add(usuario);
+                    listaDeComentarios.Add(comentario);
                 }
             }
             return listaDeComentarios;
@@ -67,6 +68,25 @@ namespace ponto_digital_final.Repositorios
 
         }
 
+        public void Deletar(ComentarioModel comentario){
+            string[] linhas = File.ReadAllLines(PATH);
+            List<string> linesList = File.ReadAllLines(PATH).ToList();
+            
+
+            for (int i = 0; i < linhas.Length; i++)
+            {
+                string[] linha = linhas[i].Split(";");
+
+                if (comentario.ID.ToString() == linha[0]){
+
+                    linesList.RemoveAt(i);
+                    break;
+                }
+            }
+            File.WriteAllLines(PATH,linesList.ToArray());
+
+        }
+
         public List<ComentarioModel> ListarAprovados(){
             List<ComentarioModel> listaDeComentarios = new List<ComentarioModel>();
 
@@ -78,15 +98,15 @@ namespace ponto_digital_final.Repositorios
 
                     if (bool.Parse(dados[5]))
                     {
-                        var usuario = new ComentarioModel();
-                        usuario.ID = int.Parse(dados[0]);
-                        usuario.Nome = dados[1];
-                        usuario.Email = dados[2];
-                        usuario.Texto = dados[3];
-                        usuario.Data = DateTime.Parse(dados[4]);
-                        usuario.Aprovado = bool.Parse(dados[5]);
+                        var comentario = new ComentarioModel();
+                        comentario.ID = int.Parse(dados[0]);
+                        comentario.Nome = dados[1];
+                        comentario.Email = dados[2];
+                        comentario.Texto = dados[3];
+                        comentario.Data = DateTime.Parse(dados[4]);
+                        comentario.Aprovado = bool.Parse(dados[5]);
 
-                        listaDeComentarios.Add(usuario);
+                        listaDeComentarios.Add(comentario);
                     }
                     continue;   
                 }
@@ -104,15 +124,15 @@ namespace ponto_digital_final.Repositorios
 
                     if (!bool.Parse(dados[5]))
                     {
-                        var usuario = new ComentarioModel();
-                        usuario.ID = int.Parse(dados[0]);
-                        usuario.Nome = dados[1];
-                        usuario.Email = dados[2];
-                        usuario.Texto = dados[3];
-                        usuario.Data = DateTime.Parse(dados[4]);
-                        usuario.Aprovado = bool.Parse(dados[5]);
+                        var comentario = new ComentarioModel();
+                        comentario.ID = int.Parse(dados[0]);
+                        comentario.Nome = dados[1];
+                        comentario.Email = dados[2];
+                        comentario.Texto = dados[3];
+                        comentario.Data = DateTime.Parse(dados[4]);
+                        comentario.Aprovado = bool.Parse(dados[5]);
 
-                        listaDeComentarios.Add(usuario);
+                        listaDeComentarios.Add(comentario);
                     }
                     continue;   
                 }

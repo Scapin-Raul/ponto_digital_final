@@ -17,12 +17,14 @@ namespace ponto_digital_final.Controllers
                 HttpContext.Session.SetString("USER_EMAIL",usuario.Email);
                 HttpContext.Session.SetString("USER_ADMIN",usuario.Admin.ToString());
             }
-
-            if (usuario.Admin)
+            if (usuario != null)
             {
-                return RedirectToAction("Index","Admin");
-                
-            }
+                if (usuario.Admin)
+                {
+                    return RedirectToAction("Index","Admin");
+                    
+                }
+            }   
 
             return RedirectToAction("Index","Comentarios");
         }

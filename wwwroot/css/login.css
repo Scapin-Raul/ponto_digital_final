@@ -16,6 +16,7 @@ button {
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
+  /* margin: 8px 0 0 0; */
   border: none;
   cursor: pointer;
   width: 100%;
@@ -38,7 +39,7 @@ img.avatar {
 }
 
 .container {
-  padding: 60px;
+  padding: 60px 60px 35px 60px;
 }
 
 /* The Modal (background) */
@@ -94,6 +95,14 @@ img.avatar {
 @keyframes animatezoom {
   from {transform: scale(0)} 
   to {transform: scale(1)}
+}
+
+#rodape-login{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0 4em 1em 0;
+  font-size: 1.1em;
 }
 
 /* Change styles for span on extra small screens */

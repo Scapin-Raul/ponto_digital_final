@@ -13,6 +13,7 @@ namespace ponto_digital_final.Controllers
             ViewData["UserN"] = HttpContext.Session.GetString("USER_NOME");
             ViewData["UserE"] = HttpContext.Session.GetString("USER_EMAIL");
             ViewData["Css"] = "Comentarios";
+            ViewData["Title"] = "Comentarios";
             ComentariosViewModel comentarioViewModel = new ComentariosViewModel();
 
             return View(comentarioViewModel);

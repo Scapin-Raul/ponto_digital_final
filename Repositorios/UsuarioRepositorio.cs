@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ponto_digital_final.Models;
 
 namespace ponto_digital_final.Repositorios
@@ -62,6 +63,45 @@ namespace ponto_digital_final.Repositorios
             return null;
         }
 
+        public UsuarioModel BuscarPorId(int id){
+            string[] linhas = File.ReadAllLines(PATH);
+            
+            foreach (var item in linhas){
+                string[] dados = item.Split(";");
+
+                if (id.ToString().Equals(dados[0])){
+                    var usuario = new UsuarioModel();
+                    usuario.ID = int.Parse(dados[0]);
+                    usuario.Nome = dados[1];
+                    usuario.Email = dados[2];
+                    usuario.Senha = dados[3];
+                    usuario.DataNascimento = DateTime.Parse(dados[4]);
+                    usuario.Admin = bool.Parse(dados[5]);
+
+                    return usuario;
+                }
+            }
+            return null;      
+        }
+
+        public void Deletar(UsuarioModel usuario){
+            string[] linhas = File.ReadAllLines(PATH);
+            List<string> linesList = File.ReadAllLines(PATH).ToList();
+            
+
+            for (int i = 0; i < linhas.Length; i++)
+            {
+                string[] linha = linhas[i].Split(";");
+
+                if (usuario.ID.ToString() == linha[0]){
+
+                    linesList.RemoveAt(i);
+                    break;
+                }
+            }
+            File.WriteAllLines(PATH,linesList.ToArray());
+
+        }
 
     }
 }

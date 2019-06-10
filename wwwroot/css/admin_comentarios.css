@@ -1,0 +1,13 @@
+.aprovado{
+    color: #00ff00;
+    margin: 0 2em 0 0.3em;
+}
+
+.reprovado{
+    margin: 0 2em 0 0.3em;
+    color: #ff0000;
+}
+.status{
+    display: flex;
+    font-size: 1em;
+}
