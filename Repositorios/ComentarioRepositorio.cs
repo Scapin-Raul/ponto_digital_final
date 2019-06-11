@@ -21,7 +21,7 @@ namespace ponto_digital_final.Repositorios
             comentario.Data = DateTime.Now;
             
             StreamWriter sw = new StreamWriter(PATH, true);
-            sw.WriteLine($"{comentario.ID};{comentario.Nome};{comentario.Email};{comentario.Texto};{comentario.Data.ToShortDateString()};{comentario.Aprovado}");
+            sw.WriteLine($"{comentario.ID};{comentario.Nome};{comentario.Email};{comentario.Texto};{comentario.Data};{comentario.Aprovado}");
             sw.Close();
 
             return comentario;
@@ -32,23 +32,44 @@ namespace ponto_digital_final.Repositorios
 
             string[] linhas = File.ReadAllLines(PATH);
 
-            foreach (var item in linhas){
-                if (item != null && !item.Equals("")){
-                    string[] dados = item.Split(";");
+            // foreach (var item in linhas){
+            //     if (item != null && !item.Equals("")){
+            //         string[] dados = item.Split(";");
 
-                    var comentario = new ComentarioModel();
-                    comentario.ID = int.Parse(dados[0]);
-                    comentario.Nome = dados[1];
-                    comentario.Email = dados[2];
-                    comentario.Texto = dados[3];
-                    comentario.Data = DateTime.Parse(dados[4]);
-                    comentario.Aprovado = bool.Parse(dados[5]);
+            //         var comentario = new ComentarioModel();
+            //         comentario.ID = int.Parse(dados[0]);
+            //         comentario.Nome = dados[1];
+            //         comentario.Email = dados[2];
+            //         comentario.Texto = dados[3];
+            //         comentario.Data = DateTime.Parse(dados[4]);
+            //         comentario.Aprovado = bool.Parse(dados[5]);
 
 
-                    listaDeComentarios.Add(comentario);
+            //         listaDeComentarios.Add(comentario);
+            //     }
+            // }
+            // return listaDeComentarios;
+
+            for (int i = linhas.Length; i > 0; i--){  //LISTAGEM DO MAIS NOVO PRO MAIS ANTIGO
+                
+                if (linhas[i-1] != null){
+                    string[] dados = linhas[i-1].Split(";");
+
+                        var comentario = new ComentarioModel();
+                        comentario.ID = int.Parse(dados[0]);
+                        comentario.Nome = dados[1];
+                        comentario.Email = dados[2];
+                        comentario.Texto = dados[3];
+                        comentario.Data = DateTime.Parse(dados[4]);
+                        comentario.Aprovado = bool.Parse(dados[5]);
+
+                        listaDeComentarios.Add(comentario);
+
+                    continue;   
                 }
             }
             return listaDeComentarios;
+
         }
 
         public void Editar(ComentarioModel comentario)
@@ -92,9 +113,28 @@ namespace ponto_digital_final.Repositorios
 
             string[] linhas = File.ReadAllLines(PATH);
 
-            foreach (var item in linhas){
-                if (item != null){
-                    string[] dados = item.Split(";");
+            // foreach (var item in linhas){  //LISTAGEM DO MAIS ANTIGO PRO MAIS NOVO
+            //     if (item != null){
+            //         string[] dados = item.Split(";");
+            //         if (bool.Parse(dados[5]))
+            //         {
+            //             var comentario = new ComentarioModel();
+            //             comentario.ID = int.Parse(dados[0]);
+            //             comentario.Nome = dados[1];
+            //             comentario.Email = dados[2];
+            //             comentario.Texto = dados[3];
+            //             comentario.Data = DateTime.Parse(dados[4]);
+            //             comentario.Aprovado = bool.Parse(dados[5]);
+            //             listaDeComentarios.Add(comentario);
+            //         }
+            //         continue;   
+            //     }
+            // }
+
+            for (int i = linhas.Length; i > 0; i--){  //LISTAGEM DO MAIS NOVO PRO MAIS ANTIGO
+                
+                if (linhas[i-1] != null){
+                    string[] dados = linhas[i-1].Split(";");
 
                     if (bool.Parse(dados[5]))
                     {
@@ -113,6 +153,7 @@ namespace ponto_digital_final.Repositorios
             }
             return listaDeComentarios;
         }
+           
         public List<ComentarioModel> ListarReprovados(){
             List<ComentarioModel> listaDeComentarios = new List<ComentarioModel>();
 

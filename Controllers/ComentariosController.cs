@@ -11,6 +11,7 @@ namespace ponto_digital_final.Controllers
         private ComentarioRepositorio comentarioRepositorio = new ComentarioRepositorio();
         public IActionResult Index(){
             ViewData["UserN"] = HttpContext.Session.GetString("USER_NOME");
+            ViewData["UserA"] = HttpContext.Session.GetString("USER_ADMIN");
             ViewData["UserE"] = HttpContext.Session.GetString("USER_EMAIL");
             ViewData["Css"] = "Comentarios";
             ViewData["Title"] = "Comentarios";

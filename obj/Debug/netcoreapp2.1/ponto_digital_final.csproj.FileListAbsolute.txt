@@ -31,3 +31,4 @@ C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\V
 C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AdminLayout.g.cshtml.cs
 C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Comentarios.g.cshtml.cs
 C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Usuarios.g.cshtml.cs
+C:\Users\46791749865\Desktop\ponto_digital_final\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Editar.g.cshtml.cs

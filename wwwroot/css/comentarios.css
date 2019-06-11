@@ -23,8 +23,6 @@
     margin-top: -0.75em;
     margin-bottom: 0.25em;
     font-size: 1.5em;
-    text-decoration: underline;
-
 }
 #comentsUser{
     display: flex;
@@ -51,6 +49,10 @@
     text-align: right;
 }
 
+label[for="msg"]{
+    display: block;
+    margin: 2em 0 -1em 0;
+}
 
 #comentar{
     text-align: center;

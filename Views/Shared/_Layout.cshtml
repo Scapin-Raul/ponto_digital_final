@@ -1,5 +1,6 @@
 @{
     var user = (string) ViewData["UserN"];
+    var admin = (string) ViewData["UserA"];
 }
 
 <!DOCTYPE html>
@@ -55,8 +56,16 @@
                     {
                         <li><a href='@Url.Action("Logout", "Login")' >Logout</a></li>
                     }
+                    @if (!string.IsNullOrEmpty(admin))
+                    {
+                        @if (admin.Equals("True"))
+                        {
+                            <li><a href='@Url.Action("Index", "Admin")'>Home Admin</a></li>
+                            
+                        }
+                    }
                         
-
+    
                 </ul>
             </nav>
         </div>

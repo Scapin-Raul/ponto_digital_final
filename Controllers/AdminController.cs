@@ -107,5 +107,47 @@ namespace ponto_digital_final.Controllers
             return RedirectToAction("Usuarios");
         }
 
+        public IActionResult Editar(int id){
+
+            ViewData["UserN"] = HttpContext.Session.GetString("USER_NOME");
+            ViewData["UserE"] = HttpContext.Session.GetString("USER_EMAIL");
+            ViewData["UserA"] = HttpContext.Session.GetString("USER_ADMIN");
+            ViewData["Css"] = "Editar";
+            
+            
+            if (ViewData["UserA"] != null)
+            {
+                if (bool.Parse((string)ViewData["UserA"]))
+                {
+                    UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
+                    UsuarioModel usuarioRecuperado = usuarioRepositorio.BuscarPorId(id);
+
+                    AdminViewModel adminViewModel = new AdminViewModel(usuarioRecuperado);
+            
+                    return View(adminViewModel);
+                }
+            }
+            return RedirectToAction("Index","Home");      
+        }
+
+        public IActionResult EditarUser(IFormCollection form){
+            UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
+            UsuarioModel usuario = usuarioRepositorio.BuscarPorId(int.Parse(form["id"]));
+
+            if (usuario == null){
+                ViewData["Mensagem"] = "Ocorreu um erro durante a edição de usuario";    
+                return RedirectToAction("Usuarios");
+            }
+
+            usuario.Nome = form["nome"];
+            usuario.Email = form["email"];
+            usuario.Senha = form["senha"];
+
+            usuarioRepositorio.Editar(usuario);
+
+
+            return RedirectToAction("Usuarios");
+        }
+
     }
 }

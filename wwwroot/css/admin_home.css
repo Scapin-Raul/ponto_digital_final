@@ -1,7 +1,11 @@
 #dadosGerais{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     font-size: 1.2em;
+}
+#dadosGerais p{
+    width: 25%;
 }
 .ultimos{
     margin-top: 5em;
@@ -24,4 +28,22 @@
 #cadastros span{
     font-size: 1.1em;
     font-weight: bolder;
+}
+.ultimos h4{
+    font-size: 1.1em;
+}
+
+@media screen and (max-width:768px){
+    #dadosGerais p{
+        width: 100%;
+        margin: 0.2em 0;
+    }
+
+    #colunas{
+        flex-direction: column;
+    }
+    .ultimos{
+        width: 100%;
+    }
+
 }

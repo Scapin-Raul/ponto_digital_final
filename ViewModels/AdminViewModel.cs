@@ -12,6 +12,7 @@ namespace ponto_digital_final.ViewModels
         public List<UsuarioModel> listaDeUsuarios = new List<UsuarioModel>();
         public List<ComentarioModel> listaDeReprovados = new List<ComentarioModel>();
 
+        public UsuarioModel UsuarioRecuperado;
         public int QuantidadeDeComentarios;
         public int QuantidadeDeAprovados;
         public int QuantidadeDeReprovados;
@@ -22,6 +23,19 @@ namespace ponto_digital_final.ViewModels
             listaDeUsuarios = usuarioRepositorio.Listar();    
             QuantidadeDeComentarios = listaDeComentarios.Count;
 
+            QuantidadeDeUsuarios = listaDeUsuarios.Count;
+            List<ComentarioModel> listaDeAprovados = new List<ComentarioModel>();
+            listaDeAprovados = comentarioRepositorio.ListarAprovados();
+            QuantidadeDeAprovados = listaDeAprovados.Count;
+            
+            listaDeReprovados = comentarioRepositorio.ListarReprovados();
+            QuantidadeDeReprovados = listaDeReprovados.Count;
+        }
+    
+        public AdminViewModel(UsuarioModel usuarioRecuperado){
+            listaDeComentarios = comentarioRepositorio.Listar(); 
+            listaDeUsuarios = usuarioRepositorio.Listar();    
+            QuantidadeDeComentarios = listaDeComentarios.Count;
 
             QuantidadeDeUsuarios = listaDeUsuarios.Count;
             List<ComentarioModel> listaDeAprovados = new List<ComentarioModel>();
@@ -31,9 +45,8 @@ namespace ponto_digital_final.ViewModels
             listaDeReprovados = comentarioRepositorio.ListarReprovados();
             QuantidadeDeReprovados = listaDeReprovados.Count;
 
-            
-        
-        }
+            this.UsuarioRecuperado = usuarioRecuperado;
+        }            
 
 
     }

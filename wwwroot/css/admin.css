@@ -26,30 +26,19 @@ a{
     font-size: 1.1em;
     color: #dddddd;
 }
-
+header{
+    background: #112;
+}
 #menu{
     width: 90%;
     padding: 0.7em 0;
     margin: 0 auto;
+    
 }
 #menu ul{
     list-style: none;
     display: flex;
     justify-content: space-around;
-}
-
-#menu .ul_menu p{
-    color: #fff;
-    font-size: 1.2em;
-    padding: 0.4em;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: block;
-}
-#menu ul p:hover{
-    color: #000;
-    background: #fff;
-    cursor: pointer;
 }
 #menu .ul_menu a{
     color: #fff;
@@ -64,6 +53,12 @@ a{
     background: #fff;
 }
 
+.botao_menu{
+    display: none;
+}
+.botao_menu:hover{
+    cursor: pointer;
+}
 .comentario{
     padding: 1em;
     text-align: left;
@@ -89,4 +84,45 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+@media screen and (max-width:768px){
+    #menu{
+        width: 100%;
+    }
+    .menu{
+        display: none;
+        position: absolute;
+        background: #000000e0;
+        z-index: 3;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #menu ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around;
+    }
+    .active{
+        display: block;
+    }
+    .botao_menu{
+        margin-left: 1em;
+        display: block;
+        position: relative;
+    }
+    .botao_menu img{
+        max-width: 8%;
+        max-height: 8%;
+    }
+}
+
+@media screen and (max-width:450px){
+    .botao_menu img{
+        max-width: 15%;
+        max-height: 15%;
+    }
 }

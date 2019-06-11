@@ -24,9 +24,12 @@ namespace ponto_digital_final.Controllers
                     return RedirectToAction("Index","Admin");
                     
                 }
-            }   
-
             return RedirectToAction("Index","Comentarios");
+            }else{
+
+            return RedirectToAction("Index","Home");
+            }
+
         }
 
         public IActionResult Logout(){

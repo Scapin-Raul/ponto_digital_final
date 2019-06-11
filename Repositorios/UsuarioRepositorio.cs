@@ -100,8 +100,21 @@ namespace ponto_digital_final.Repositorios
                 }
             }
             File.WriteAllLines(PATH,linesList.ToArray());
-
         }
 
+        public void Editar(UsuarioModel usuario){
+           string[] linhas = File.ReadAllLines(PATH);
+                
+            for (int i = 0; i < linhas.Length; i++)
+            {
+                string[] linha = linhas[i].Split(";");
+
+                if (usuario.ID.ToString() == linha[0]){
+                    linhas[i] = $"{usuario.ID};{usuario.Nome};{usuario.Email};{usuario.Senha};{usuario.DataNascimento.ToShortDateString()};{usuario.Admin}";
+                    break;
+                }
+            }
+            File.WriteAllLines(PATH,linhas); 
+        }
     }
 }
