@@ -49,13 +49,6 @@
                     <li><a href='@Url.Action("Index", "Contatos")' >Contatos</a></li>
                     <li><a href='@Url.Action("Index", "Comentarios")'>Comentários</a></li> 
                     <li><a href='@Url.Action("Index", "Cadastro")' >Cadastro</a></li>
-                    @if (string.IsNullOrEmpty(user))
-                    {
-                        <p onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</p>
-                    }else
-                    {
-                        <li><a href='@Url.Action("Logout", "Login")' >Logout</a></li>
-                    }
                     @if (!string.IsNullOrEmpty(admin))
                     {
                         @if (admin.Equals("True"))
@@ -64,7 +57,13 @@
                             
                         }
                     }
-                        
+                    @if (string.IsNullOrEmpty(user))
+                    {
+                        <p onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</p>
+                    }else
+                    {
+                        <li><a href='@Url.Action("Logout", "Login")' >Logout</a></li>
+                    }        
     
                 </ul>
             </nav>

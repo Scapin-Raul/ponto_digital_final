@@ -19,8 +19,9 @@ namespace ponto_digital_final.Repositorios
                 comentario.ID= File.ReadAllLines(PATH).Length + 1;
             }
             comentario.Data = DateTime.Now;
-            comentario.Texto.Replace("\n"," ");
+            comentario.Texto = comentario.Texto.Replace("\n","").Replace(";",",");
             
+
             StreamWriter sw = new StreamWriter(PATH, true);
             sw.WriteLine($"{comentario.ID};{comentario.Nome};{comentario.Email};{comentario.Texto};{comentario.Data};{comentario.Aprovado}");
             sw.Close();
